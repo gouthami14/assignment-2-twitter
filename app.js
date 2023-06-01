@@ -47,7 +47,7 @@ const getFollowingPeopleIdsOfUser = async (username) => {
 
 const authentication = (request, response, next) => {
     let jwtToken;
-    const authHeader.request.headers["authorization"];
+    const authHeader = request.headers["authorization"];
     if(authHeader){
         jwtToken = authHeader.split(" ")[1];
     }
