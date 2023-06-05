@@ -143,7 +143,7 @@ app.get("/user/tweets/feed/", authentication, async (request, response) => {
   const followingPeopleIds = await getFollowingPeopleIdsOfUser(username);
 
   const getTweetsQuery = `SELECT
-    username. tweet, date_time AS dateTime
+    username, tweet, date_time AS dateTime
     FROM user INNER JOIN tweet ON user.user_id = tweet.user_id
     WHERE
     user.user_id IN (${followingPeopleIds})
