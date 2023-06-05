@@ -186,7 +186,7 @@ app.get(
   async (request, response) => {
     const { username, userId } = request;
     const { tweetId } = request.params;
-    const getTweetQuery = `SELECT tweet
+    const getTweetQuery = `SELECT tweet,
      (SELECT COUNT() FROM like WHERE tweet_id = '${tweetId}') AS likes,
      (SELECT COUNT() FROM like reply WHERE tweet_id = '${tweetId}') AS replies,
      date_time AS dateTime
