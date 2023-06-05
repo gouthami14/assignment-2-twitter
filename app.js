@@ -120,7 +120,7 @@ app.post("/login/", async (request, response) => {
   const userDbDetails = await db.get(getUserQuery);
 
   if (userDbDetails !== undefined) {
-    isPasswordCorrect = await bcrypt.compare(password, userDbDetails);
+    isPasswordCorrect = await bcrypt.compare(password, userDbDetails.password);
 
     if (isPasswordCorrect) {
       const payload = { username, userId: userDbDetails.user_id };
